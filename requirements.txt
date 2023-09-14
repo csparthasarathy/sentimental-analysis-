@@ -1,8 +1,8 @@
-import streamlit as st
+import streamlit
 import joblib
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.ensemble import AdaBoostClassifier
-import pandas as pd
+import pandas
 import nltk
 from nltk.stem import PorterStemmer
 from nltk.tokenize import word_tokenize
