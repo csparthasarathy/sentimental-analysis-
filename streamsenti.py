@@ -1,7 +1,7 @@
 import streamlit as st
 import joblib
-from sklearn.feature_extraction.text import TfidfVectorizer
-from sklearn.ensemble import AdaBoostClassifier
+#from sklearn.feature_extraction.text import TfidfVectorizer
+#from sklearn.ensemble import AdaBoostClassifier
 
 # Load the CSV data
 #df = pd.read_csv(r"C:\Users\19014\OneDrive\Desktop\ml project\SIH\mental_health.csv")
