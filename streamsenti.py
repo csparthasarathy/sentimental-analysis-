@@ -1,7 +1,7 @@
 import streamlit as st
 import joblib
 
-st.sidebar.title("Mental Health Classifier")
+st.sidebar.title("Analyse your Mental Health")
 st.sidebar.write("Feel free to express yourself through your text, and together, we'll explore whether any signs of stress are present in your words. Your thoughts matter!")
 st.sidebar.write("Please provide a thoughtful input comprising at least 30 words of content to enable a comprehensive analysis of your mental well-being. Your detailed input helps us provide you with more accurate insights and support")
 st.title("Cultivate an understanding of your mental well-being with the assistance of the Mental Health Classifier")
