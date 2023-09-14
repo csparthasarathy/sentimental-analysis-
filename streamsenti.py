@@ -2,7 +2,7 @@ import streamlit as st
 import joblib
 
 st.sidebar.title("Mental Health Classifier")
-st.sidebar.write("Enter your text and see if it's stressful or not!")
+st.sidebar.write("Feel free to express yourself through your text, and together, we'll explore whether any signs of stress are present in your words. Your thoughts matter!")
 
 st.title("Mental Health Classifier")
 
