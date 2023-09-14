@@ -4,7 +4,7 @@ import joblib
 st.sidebar.title("Mental Health Classifier")
 st.sidebar.write("Feel free to express yourself through your text, and together, we'll explore whether any signs of stress are present in your words. Your thoughts matter!")
 
-st.title("Mental Health Classifier")
+st.title("Cultivate an understanding of your mental well-being with the assistance of the Mental Health Classifier")
 
 user_input = st.text_area("Enter your text:")
 
