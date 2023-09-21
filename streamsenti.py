@@ -1,5 +1,23 @@
 import streamlit as st
 import joblib
+home_button_style = """
+    background-color: #f63366;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    cursor: pointer;
+    float: right;
+"""
+def navigate_to_home():
+   
+    home_url = "https://serenemindz-home.onrender.com/"
+    st.markdown('<a href="{}" style="{}" target="_blank">Home</a>'.format(home_url, home_button_style), unsafe_allow_html=True)
+
+navigate_to_home()
 
 st.sidebar.title("Analyse your Mental Health")
 st.sidebar.write("Feel free to express yourself through your text, and together, we'll explore whether any signs of stress are present in your words. Your thoughts matter!")
