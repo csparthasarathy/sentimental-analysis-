@@ -15,7 +15,7 @@ home_button_style = """
 def navigate_to_home():
    
     home_url = "https://serenemindz.netlify.app/"
-    st.markdown('<a href="{}" style="{}" target="_blank">Homie</a>'.format(home_url, home_button_style), unsafe_allow_html=True)
+    st.markdown('<a href="{}" style="{}" target="_blank">Home</a>'.format(home_url, home_button_style), unsafe_allow_html=True)
 
 navigate_to_home()
 
