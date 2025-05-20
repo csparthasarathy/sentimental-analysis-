@@ -1,5 +1,4 @@
 name: Push to Hugging Face Space
-
 on:
   push:
     branches:
@@ -8,7 +7,6 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout repo with full history and LFS
         uses: actions/checkout@v3
@@ -26,15 +24,11 @@ jobs:
           git lfs install
           git lfs track "*.pkl"
           git add .gitattributes
+          git add data_vec.pkl # Ensure data_vec.pkl is added AFTER tracking
 
-          # Untrack and re-add the .pkl file using LFS
-          if [ -f "data_vec.pkl" ]; then
-            git rm --cached data_vec.pkl || true
-            git add data_vec.pkl
-          fi
-
-          # Commit changes only if there are any
-          git diff --cached --quiet || git commit -m "Re-add .pkl using Git LFS"
+      - name: Commit changes
+        run: |
+          git diff --staged --quiet || git commit -m "Configure Git LFS and add data_vec.pkl"
 
       - name: Push to Hugging Face Space
         env:
