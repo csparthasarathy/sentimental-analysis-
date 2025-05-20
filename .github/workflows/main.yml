@@ -35,4 +35,4 @@ jobs:
           HF_TOKEN: ${{ secrets.HF_TOKEN }}
         run: |
           git remote | grep space || git remote add space https://pavancs:${HF_TOKEN}@huggingface.co/spaces/pavancs/newapp
-          git push space main
+          git push space main --force
