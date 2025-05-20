@@ -10,25 +10,35 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
+      - name: Checkout repo with full history and LFS
         uses: actions/checkout@v3
         with:
-          lfs: true           # Enables Git LFS
-          fetch-depth: 0      # Fetch full history, not shallow
-      
-      - name: Set up Git LFS
+          lfs: true
+          fetch-depth: 0
+
+      - name: Set up Git user
+        run: |
+          git config --global user.email "pavancs325@email.com"
+          git config --global user.name "csparthasarathy"
+
+      - name: Install and configure Git LFS
         run: |
           git lfs install
           git lfs track "*.pkl"
           git add .gitattributes
-          git add data_vec.pkl
-          git commit -m "Track .pkl with LFS" || echo "Nothing to commit"
 
-      - name: Push to Hugging Face
+          # Untrack and re-add the .pkl file using LFS
+          if [ -f "data_vec.pkl" ]; then
+            git rm --cached data_vec.pkl || true
+            git add data_vec.pkl
+          fi
+
+          # Commit changes only if there are any
+          git diff --cached --quiet || git commit -m "Re-add .pkl using Git LFS"
+
+      - name: Push to Hugging Face Space
         env:
           HF_TOKEN: ${{ secrets.HF_TOKEN }}
         run: |
-          git config --global user.email "pavancs325@email.com"
-          git config --global user.name "csparthasarathy"
           git remote add space https://pavancs:${HF_TOKEN}@huggingface.co/spaces/pavancs/newapp
           git push space main --force
