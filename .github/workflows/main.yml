@@ -23,8 +23,8 @@ jobs:
         run: |
           git lfs install
           git lfs track "*.pkl"
-          git add .gitattributes
-          git add data_vec.pkl # Ensure data_vec.pkl is added AFTER tracking
+          git add .gitattributes || true
+          git add data_vec.pkl || true
 
       - name: Commit changes
         run: |
@@ -34,5 +34,5 @@ jobs:
         env:
           HF_TOKEN: ${{ secrets.HF_TOKEN }}
         run: |
-          git remote add space https://pavancs:${HF_TOKEN}@huggingface.co/spaces/pavancs/newapp
-          git push space main --force
+          git remote | grep space || git remote add space https://pavancs:${HF_TOKEN}@huggingface.co/spaces/pavancs/newapp
+          git push space main
