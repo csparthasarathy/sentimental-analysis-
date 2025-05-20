@@ -1,3 +1,4 @@
+---
 title: Newapp
 emoji: 🚀
 colorFrom: red
@@ -7,5 +8,4 @@ app_port: 8501
 tags:
   - streamlit
 pinned: false
-short_description: new app test
-license: mit
+---
